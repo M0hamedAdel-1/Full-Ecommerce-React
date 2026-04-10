@@ -1,0 +1,248 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+:root {
+  /* Light Mode (افتراضي) */
+  --main_color: #feb710;
+  --secondary_color: #232e33;
+  --accent_color: #ff80ab;
+
+  --bg_color: #f5f7fa;
+  --white_color: #ffffff;
+
+  --text_color: #2d3436;
+  --p_color: #7b8a8b;
+
+  --border_color: #e0e0e0;
+  --hover_color: #e1a10b;
+}
+
+/* Dark Mode */
+html.dark {
+  --main_color: #ffb74d;
+  --secondary_color: #fafafa;
+  --accent_color: #ff80ab;
+
+  --bg_color: #121212;
+  --white_color: #ffffff;
+  --black_color: rgb(11, 10, 10);
+  --text_color: #ececec;
+  --p_color: #b0b0b0;
+
+  --border_color: #333333;
+  --hover_color: #e1a10b;
+}
+
+/* System Mode */
+html.system {
+  --main_color: #feb710;
+  --secondary_color: #232e33;
+  --accent_color: #ff80ab;
+
+  --bg_color: #f5f7fa;
+  --white_color: #ffffff;
+
+  --text_color: #2d3436;
+  --p_color: #7b8a8b;
+
+  --border_color: #e0e0e0;
+  --hover_color: #e1a10b;
+}
+
+/* System Dark Preference */
+@media (prefers-color-scheme: dark) {
+  html.system {
+    --main_color: #ffb74d;
+    --secondary_color: #1b1b1b;
+    --accent_color: #ff80ab;
+
+    --bg_color: #121212;
+    --white_color: #ffffff;
+
+    --text_color: #ececec;
+    --p_color: #b0b0b0;
+
+    --border_color: #333333;
+    --hover_color: #e1a10b;
+  }
+}
+img {
+  width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color_heading);
+  font-family: "DM Sans", sans-serif;
+}
+span {
+  color: var(--main_color);
+}
+p {
+  color: var(--p_color);
+}
+input,
+textarea,
+button,
+select {
+  outline: none;
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: var(--color_heading);
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1350px;
+}
+li {
+  list-style: none;
+}
+
+.landing {
+  height: calc(100vh - 90px);
+  background-image: url("../imgs/landing.png");
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.landing::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #202527c7;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.landing .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.landing .container .content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.landing .container .content h1 {
+  color: var(--main_color);
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.landing .container .content p {
+  color: var(--white_color);
+  text-transform: uppercase;
+}
+
+.footer {
+  background-color: #242424;
+  padding-block: 80px;
+  padding-inline: 20px;
+}
+.footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer .content {
+  margin-bottom: 30px;
+}
+.footer .container h3 {
+  color: var(--main_color);
+  margin-bottom: 20px;
+}
+.footer .container span {
+  color: white;
+}
+.footer .container p {
+  color: white;
+}
+.footer .mail {
+  margin-bottom: 30px;
+}
+.footer .mail .one {
+  color: var(--main_color);
+  margin-bottom: 20px;
+}
+.footer .follow_us h3 {
+  text-align: center;
+}
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.footer .follow_us svg {
+  color: white;
+  font-size: 25px;
+  transition: 0.5s;
+}
+.footer .follow_us svg:hover {
+  color: var(--main_color);
+}
+.footer .rights {
+  text-align: center;
+  color: var(--white_color);
+  margin-top: 50px;
+}
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pages {
+  flex: 1;
+}
+
+@media (max-width: 1100px) {
+  .footer .follow_us svg {
+    font-size: 20px;
+  }
+}
+/* error_element */
+.error_element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.error_element h1 {
+  color: var(--main_color);
+  font-size: 60px;
+  font-weight: bold;
+}
+.error_element p {
+  font-size: 30px;
+}
+@media (max-width: 767px) {
+  .error_element h1 {
+    font-size: 30px;
+  }
+  .error_element p {
+    font-size: 15px;
+  }
+}

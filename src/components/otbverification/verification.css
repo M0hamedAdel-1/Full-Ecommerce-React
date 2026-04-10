@@ -1,0 +1,133 @@
+
+ :root {
+  --main_color: #feb710;;      /* أزرق فاتح (الأساسي) */
+  --secondary_color: #232e33;; /* برتقالي (زرار / CTA) */
+  --accent_color: #FF80AB;    /* وردي خفيف */
+
+  --bg_color: #F5F7FA;        /* خلفية فاتحة */
+  --white_color: #FFFFFF;
+
+  --text_color: #2D3436;      /* نص أساسي */
+  --p_color: #7B8A8B;         /* نص ثانوي */
+
+  --border_color: #E0E0E0;
+}
+
+.verification_page{
+    position: relative;
+    height: 100vh;
+}
+
+
+
+.verification_page img{
+    width: 160px;
+}
+
+.verification_page .one{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.verification_page .two{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(180deg);
+}
+.verification_page .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.verification_page .verify_content{
+    margin-top: 30px;
+    width: 470px;
+}
+.verification_page .verify_content .heading {
+    text-align: center;
+}
+.verification_page .verify_content .heading span{
+    font-size: 25px;
+    color: var(--secondary_color);
+    margin-right: 10px;
+}
+.verification_page .verify_content .heading span:last-child{
+    color: var(--main_color) !important;
+}
+
+.verification_page .verify_content img{
+    margin: 20px auto;
+}
+.verification_page .verify_content .one-p{
+    text-align: center;
+   font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #232e33;
+}
+.verification_page .verify_content .verify_inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 15px 0;
+
+}
+.verification_page .verify_content .verify_inputs input{
+    width: 50px;
+      height: 50px;
+    border: 1px solid var(--main_color);
+    padding: 7px ;
+    box-shadow: 0 0 3px var(--main_color);
+    border-radius: 8px;
+    font-size: 30px;
+}
+.verification_page .verify_content .verify_inputs input::placeholder{
+    text-align: center;
+    font-size: 25px;
+}
+.verification_page  .receive-code{
+    color: var(--secondary_color);
+    text-align: center;
+
+}
+.verification_page  .receive-code button{
+    color: var(--main_color);
+}
+.verification_page .verify_content .btn_verify{
+    background-color: var(--main_color);
+    color: var(--white_color);
+    padding:0 6rem 0 6rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    height: 2.75rem;
+    width: fit-content;
+    margin: 20px auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.verification_page .verify_content .btn_verify:hover{
+    background-color: #e1a10b;
+}
+
+@media (max-width:767px) {
+
+    .verification_page img{
+    width: 100px;
+    }
+    .verification_page .verify_content .verify_inputs input{
+        width: 25px;
+        height: 25px;
+    }
+    .verification_page .verify_content{
+        width: 300px;
+    }
+}
+.verification_page .btn_verify:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}

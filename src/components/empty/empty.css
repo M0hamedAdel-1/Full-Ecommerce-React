@@ -1,0 +1,22 @@
+/* start empty orders */
+.Empty_order .container {
+    background-color: var(--bg_color);
+}
+.Empty_order .container .empty {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var(--border_color);
+    border-radius: 10px;
+    padding: 20px;
+}
+.Empty_order .container .icon svg{
+    color: var(--text_color);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.Empty_order .container .empty h1{
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: var(--text_color);
+}

@@ -1,0 +1,136 @@
+.sign_in {
+  position: relative;
+  height: calc(100vh - 90px);
+  background-color: var(--bg_color);
+}
+.sign_in img {
+  width: 140px;
+}
+.sign_in img.one {
+  position: absolute;
+  right: 0;
+}
+
+.sign_in img.two {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.sign_in .form-container h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: var(--text_color);
+}
+
+.sign_in .form-container {
+  display: flex;
+  flex-direction: column;
+}
+.sign_in .input_group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.sign_in .input_group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  background: var(--bg_color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: 0.5s;
+  border: 1px solid var(--secondary_color);
+    color: var(--text_color);
+
+}
+
+.sign_in .form-container label {
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  font-size: 13px;
+  color: var(--text_color);
+  margin-bottom: 5px;
+  display: inline-block;
+  padding: 0 5px;
+  background-color: var(--bg_color);
+}
+.sign_in .form-container input::placeholder{
+  color: var(--text_color);
+}
+
+.sign_in .form-container .eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.sign_in .input_group input:focus {
+  box-shadow: 0 0 0 3px rgba(240, 180, 41, 0.3);
+}
+
+.sign_in .form-container .btn_signin {
+  background-color: var(--main_color);
+  border-radius: 10px;
+  color: var(--white_color);
+  font-size: 15px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 100%;
+  margin: 10px 0;
+}
+.sign_in .form-container .btn_signin:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sign_in .form-container button:hover {
+  background-color: #e1a10b;
+}
+
+.sign_in .form-container img {
+  width: 20px;
+  height: 20px;
+}
+
+.sign_in .form-container a {
+  width: fit-content;
+  margin-inline-start: auto;
+  color: var(--text_color);
+}
+
+.sign_in .form-container .or_div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sign_in .form-container hr {
+  width: 100%;
+}
+
+.btn_google {
+  border-radius: 10px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  background-color: var(--bg_color);
+  transition: 0.4s;
+  border: 1px solid var(--border_color);
+  color: var(--text_color);
+}
+
+.sign_in .btn_google:hover {
+  background-color: var(--bg_color) !important;
+}
+@media (max-width: 767px) {
+  .sign_in img {
+    display: none;
+  }
+}

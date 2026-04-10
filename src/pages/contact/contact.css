@@ -1,0 +1,135 @@
+.contact {
+  min-height: 100vh;
+  background-color: var(--bg_color);
+}
+.contact img {
+  width: 150px;
+  position: absolute;
+}
+.contact .bottom {
+  bottom: 0;
+  right: 0;
+}
+.contact .top {
+  top: -70px;
+  left: 0;
+  transform: rotate(180deg);
+}
+.contact .container h1 {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px 0;
+  color: var(--text_color);
+}
+.contact .contact_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.contact .icons {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+.contact .icons a {
+  border: 2px solid #b1b1b1;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.6s;
+}
+.contact .icons svg {
+  font-size: 25px;
+  transition: 0.6s;
+  color: var( --secondary_color);
+}
+.contact .icons a:hover svg {
+  transform: rotate(360deg);
+}
+.contact .icons a:hover {
+  border: 2px solid var(--main_color);
+  box-shadow: 8px 6px 7px var(--main_color);
+}
+
+.contact .form {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact .form {
+  width: 450px;
+}
+.contact .form input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: var(--bg_color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: 0.5s;
+   border: 1px solid #e5e7eb;
+}
+
+.contact .form textarea {
+  height: 200px;
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  border-radius: 10px;
+  resize: none;
+}
+.contact .form input::placeholder,
+.contact .form textarea::placeholder {
+  text-transform: capitalize;
+  color: var(--p_color);
+}
+
+.contact .form input:focus,
+.contact .form textarea:focus {
+  border: 1px solid var(--main_color);
+  box-shadow: 5px 5px 5px var(--main_color);
+}
+
+.contact .form button {
+  background-color: var(--main_color);
+  border-radius: 10px;
+  color: var(--white_color);
+  font-size: 15px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.contact .form button:hover {
+  background-color: #e1a10b;
+}
+
+@media (max-width: 991px) {
+  .contact .contact_form {
+    flex-direction: column;
+  }
+  .contact .icons {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .contact .icons {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .contact_form .icons svg {
+    font-size: 18px;
+  }
+  .contact_form .form {
+    width: 300px;
+  }
+  .contact img {
+    display: none;
+  }
+}

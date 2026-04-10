@@ -1,0 +1,29 @@
+.orders {
+  z-index:1;
+  background-color: var(--bg_color);
+  min-height: 100vh;
+}
+.orders .container {
+  padding: 50px;
+}
+.orders .container h1 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 40px;
+}
+.orders img {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 2;
+}
+.orders .container .heading {
+  color: var(--secondary_color);
+  margin-bottom: 50px;
+}
+.orders .container h1 svg {
+  color: var(--secondary_color);
+  font-size: 20px;
+}
