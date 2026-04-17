@@ -4,7 +4,7 @@ import { FaEye } from "react-icons/fa";
 import { LuEyeClosed } from "react-icons/lu";
 
 import { axiosInstance } from "../../config/axios";
-import toast  from "react-hot-toast";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 // cookies
 import Cookies from "js-cookie";
@@ -17,9 +17,8 @@ const Signin = () => {
   const navigate = useNavigate();
 
   const [isloading, setIsloading] = useState(false);
-  const {setuser} = useAuth()
+  const { setuser } = useAuth();
 
-  
   const submitLogin = async () => {
     const { email, password } = loginForm;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -51,11 +50,11 @@ const Signin = () => {
           toasterId: "bottom-right",
         });
         Cookies.set("user", JSON.stringify(response.data), {
-            expires: 3,
-            secure:true,
-            sameSite:"strict"
+          expires: 3,
+          secure: true,
+          sameSite: "strict",
         });
-        setuser(response.data)
+        setuser(response.data);
         navigate("/", { replace: true });
       } else {
         toast.error(response.data.message);
@@ -67,23 +66,25 @@ const Signin = () => {
     }
   };
 
-  
-
   return (
     <>
-    
-      <div className="sign_in " >
-         
-        <img data-aos="fade-left" className="one" src="../../../imgs/circle.svg" />
-        <img data-aos="fade-left" className="two" src="../../../imgs/square.svg" />
-        
+      <div className="sign_in ">
+        <img
+          data-aos="fade-left"
+          className="one"
+          src="../../../imgs/circle.svg"
+        />
+        <img
+          data-aos="fade-left"
+          className="two"
+          src="../../../imgs/square.svg"
+        />
+
         <div className="form-container" data-aos="fade-right">
           <h1>
             Welcome to kiosk <span>kids</span>
           </h1>
 
-
-          
           <div className="input_group">
             <label htmlFor="email">email</label>
             <input
@@ -113,7 +114,7 @@ const Signin = () => {
             </span>
           </div>
 
-          <Link  to="/forgetPassword">forget password?</Link>
+          <Link to="/forgetPassword">forget password?</Link>
 
           <button
             className="btn_signin"
@@ -129,7 +130,7 @@ const Signin = () => {
           </div> */}
 
           {/* <button className="btn_google">
-            <img src="../../../public/imgs/google.svg" /> continue with google
+            <img src="/imgs/google.svg" /> continue with google
           </button> */}
         </div>
       </div>

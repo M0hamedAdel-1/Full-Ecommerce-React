@@ -13,7 +13,7 @@ const Verification = () => {
                                 <span>kiosk</span>
                                 <span>kids</span>
                             </div>
-                            <img src="../../../public/imgs/verify.png"/>
+                            <img src="/imgs/verify.png"/>
                             <p className="one-p">Enter 6 digits code that you have received on email before expiration</p>
                             <OtbInputs/>
                             
