@@ -1,0 +1,33 @@
+{
+  "theme_color": "#000",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "KidsKiosk - Shoes for children",
+  "short_name": "KidsKiosk Store",
+  "description": "KidsKiosk - Shoes for children",
+  
+  "icons": [
+      {
+          "src": "./imgs/logo.jpg",
+          "sizes": "192x192",
+          "type": "image/png"
+      },
+      {
+          "src": "./imgs/logo.jpg",
+          "sizes": "256x256",
+          "type": "image/png"
+      },
+      {
+          "src": "./imgs/logo.jpg",
+          "sizes": "384x384",
+          "type": "image/png"
+      },
+      {
+          "src": "./imgs/logo.jpg",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ]
+}

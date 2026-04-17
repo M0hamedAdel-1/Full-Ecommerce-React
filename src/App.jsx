@@ -46,6 +46,8 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/success" element={<SuccessOrder/>} />
+            <Route path="*" element={<Erorrcomponent/>} />
+            
           </Route>
         </Route>
 
