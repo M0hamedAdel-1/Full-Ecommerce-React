@@ -33,4 +33,9 @@
   gap: 30px;
   
 }
+@media (max-width:767px) {
+  .favorites .container {
+    padding: 14px;
+}
+}
 

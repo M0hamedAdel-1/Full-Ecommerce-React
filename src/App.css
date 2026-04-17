@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--bg_color);
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
   position: relative;
@@ -161,10 +161,10 @@ li {
   padding-inline: 20px;
 }
 .footer .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  text-align: center;
 }
 .footer .content {
   margin-bottom: 30px;
@@ -184,7 +184,6 @@ li {
 }
 .footer .mail .one {
   color: var(--main_color);
-  margin-bottom: 20px;
 }
 .footer .follow_us h3 {
   text-align: center;

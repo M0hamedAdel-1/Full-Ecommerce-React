@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { IoIosSunny } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
@@ -6,14 +6,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import Cookies from "js-cookie";
-
 import "./navbar.css";
-import { Authcontext, useAuth } from "../context/Auth";
+import { useAuth } from "../context/Auth";
 import { CartContext } from "../context/CartContext";
 import { ThemeContext } from "../context/ThemeContext";
-import toast, { useToaster } from "react-hot-toast";
-import Profile from "../../pages/profile/Profile";
-
+import toast from "react-hot-toast";
 const navlinks = [
   { name: "Home", path: "/" },
   { name: "Products", path: "/products" },
@@ -60,18 +57,10 @@ const Navbar = () => {
     navigate("/signin");
     toast.success("Logged out successfully");
   };
-
-  const [cookieuser, setcookieuser] = useState(null);
-  const [loading, setloading] = useState(true);
-
-  useEffect(() => {
-    const userincookies = Cookies.get("user");
-    if (userincookies) {
-      setcookieuser(JSON.parse(userincookies));
-      setloading(false);
-    }
-  }, []);
-
+  const handleProfile = () => {
+    navigate("/profile");
+    setActive(false);
+  };
   return (
     <>
       <header>
@@ -135,7 +124,6 @@ const Navbar = () => {
                       </button>
                     </div>
                   </div>
-
                   <div
                     ref={profileref}
                     className="icon icon_profile"
@@ -145,11 +133,9 @@ const Navbar = () => {
                     }}
                   >
                     {/* <CgProfile/> */}
-                    {loading ? (
-                      <CgProfile />
-                    ) : user ? (
+                    {user ? (
                       <img
-                        src={user.image}
+                        src={user?.image}
                         alt="profile"
                         className="profile_avatar"
                       />
@@ -158,13 +144,7 @@ const Navbar = () => {
                     )}
 
                     <div className={`profile ${showprofile ? "show" : ""}`}>
-                      <button
-                        onClick={() => {
-                          navigate("/profile");
-                        }}
-                      >
-                        Profile
-                      </button>
+                      <button onClick={handleProfile}>Profile</button>
                       <button onClick={handleLogOut}>Log Out</button>
                     </div>
                   </div>

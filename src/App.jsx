@@ -19,6 +19,9 @@ import AuthLayout from "./layouts/AuthLayout";
 import ErrorElement from "./components/ErrorElement/ErrorElement";
 import Erorrcomponent from "./components/Erorrcomponent";
 import Profile from "./pages/profile/Profile";
+import SuccessOrder from "./pages/successOrder/SuccessOrder";
+import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
+import OTPForm from "./pages/ForgetPassword/OTPForm";
 function App() {
   return (
     <>
@@ -42,15 +45,18 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/products/:id" element={<ProductDetails />} />
-            <Route path="*" element={<Erorrcomponent />} />
+            <Route path="/success" element={<SuccessOrder/>} />
           </Route>
         </Route>
 
         <Route element={<AuthLayout />} errorElement={<ErrorElement/>}>
           <Route path="/signin" element={<Signin />} />
+          <Route path="/forgetPassword" element={<ForgetPassword />} />
+          <Route path="/verify-otp" element={<OTPForm />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/verify" element={<Verification />} />
         </Route>
+
       </Routes>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./signup.css";
 import { FaEye } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -15,7 +15,6 @@ const Signup = () => {
     address: "",
     image: null,
   });
-
   const [showPassword, setShowPassword] = useState(false);
   const [showconPassword, setconShowPassword] = useState(false);
   const [isloading, setIsloading] = useState(false);
@@ -34,7 +33,7 @@ const Signup = () => {
       image,
     } = signupform;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const phoneRegex = /^[0-9]{11}$/;
+    const phoneRegex = /^01[0125][0-9]{8}$/;
 
     if (
       !firstName ||
@@ -52,8 +51,8 @@ const Signup = () => {
 
     if (firstName.length < 3 || secondName.length < 3) {
       toast.error("not valid first and last name must be at least 3 charter");
+      return
     }
-
     if (!emailRegex.test(email)) {
       toast.error("not valid mail");
       return;
@@ -80,9 +79,6 @@ const Signup = () => {
       Object.entries(signupform).forEach(([key, value]) => {
         formData.append(key, value);
       });
-      // console.log(formData);
-      
-
       setIsloading(true);
       const response = await axiosInstance.post("/account/register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -91,7 +87,6 @@ const Signup = () => {
         toast.success("Register Is Successful", {
           toasterId: "bottom-right",
         });
-        // otp verification navigate to
         navigate("/verify", {
           replace: true,
           state: { email: signupform.email },
@@ -99,11 +94,10 @@ const Signup = () => {
 
         toast.success("Account created successfully, please verify your email");
       } else {
-        toast.error(response.data.message);
+        toast.error("Unable to create account. Please try again.");
       }
     } catch (e) {
-      // console.log(e.message)
-      toast.error(e.response?.data?.message || "Something went wrong");
+      toast.error(e.response?.data?.message || "Something went wrong. Please try again later.");
     } finally {
       setIsloading(false);
     }

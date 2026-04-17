@@ -16,10 +16,11 @@
   bottom: 0;
   right: 0;
 }
-.sign_in .form-container h1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.sign_in  .form-container h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: var(--text_color);
+  text-align: center;
 }
 
 .sign_in .form-container {
@@ -68,7 +69,8 @@
   transform: translateY(-50%);
 }
 .sign_in .input_group input:focus {
-  box-shadow: 0 0 0 3px rgba(240, 180, 41, 0.3);
+  box-shadow: 0 0 0 3px var(--main_color);
+  border: 1px solid var(--main_color);
 }
 
 .sign_in .form-container .btn_signin {
@@ -96,7 +98,7 @@
   height: 20px;
 }
 
-.sign_in .form-container a {
+.sign_in  a{
   width: fit-content;
   margin-inline-start: auto;
   color: var(--text_color);
@@ -130,7 +132,8 @@
   background-color: var(--bg_color) !important;
 }
 @media (max-width: 767px) {
-  .sign_in img {
+  .sign_in .one, 
+  .sign_in .two {
     display: none;
   }
 }

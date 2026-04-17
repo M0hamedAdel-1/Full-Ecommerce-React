@@ -5,8 +5,8 @@ import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa'
 const Contact = () => {
   return (
     <div className='contact'>
-      <img className='top' src='../../../public/imgs/square.svg'/>
-      <img className='bottom' src='../../../public/imgs/square.svg'/>
+      <img className='top' src='../../../imgs/square.svg'/>
+      <img className='bottom' src='../../../imgs/square.svg'/>
 
 
       <div className='container'>

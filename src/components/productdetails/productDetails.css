@@ -165,14 +165,10 @@
     cursor: pointer;
 
 }
-/* .product_details .btn_add_to_cart:hover {
-  background-color: var(--hover-color);
-} */
 .product_loading_details {
   height: calc(100vh - 90px);
   background-color: var(--white_color);
 }
-
 .next-swiper-btn,
 .prev-swiper-btn {
   position: absolute;

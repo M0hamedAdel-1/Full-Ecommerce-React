@@ -4,11 +4,9 @@ import { FaEye } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Cookies from "js-cookie";
 import { IoMdClose } from "react-icons/io";
-import axios from "axios";
 import { axiosInstance } from "../../config/axios";
 import toast from "react-hot-toast";
 import { useAuth } from "../../components/context/Auth";
-
 const Profile = () => {
   const [showPreview, setShowPreview] = useState(false);
   const [loading, setloading] = useState(false);
@@ -17,8 +15,8 @@ const Profile = () => {
     secondName: "",
     phone: "",
     address: "",
-    image: null, // File object
-    imagePreview: null, // URL for preview
+    image: null,
+    imagePreview: null,
   });
 
   // Load user data from cookies
@@ -32,14 +30,9 @@ const Profile = () => {
       setprofileform({
         ...userobj,
         imagePreview: userobj.image || null,
-        // preview from old image URL
-        // input file stays empty
       });
     }
   }, []);
-
-  // console.log(profileform)
-
   // Text inputs handler
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -84,10 +77,21 @@ const Profile = () => {
           headers: { "Content-Type": "multipart/form-data" },
         },
       );
-
+      const phoneRegex = /^01[0125][0-9]{8}$/;
       if (response.status === 200) {
-        console.log("Profile updated successfully!");
-        console.log(response.data); // بيانات الرد من السيرفر
+        if (
+          profileform.firstName.length < 3 ||
+          profileform.secondName.length < 3
+        ) {
+          toast.error(
+            "not valid first and last name must be at least 3 charter",
+          );
+          return;
+        }
+        if (!phoneRegex.test(profileform.phone)) {
+          toast.error("please enter valid phone");
+          return;
+        }
 
         Cookies.set("user", JSON.stringify(response.data), {
           expires: 3,
@@ -180,6 +184,7 @@ const Profile = () => {
                 type="file"
                 name="profileImage"
                 accept="image/*"
+                // value={profileform.image}
                 onChange={(e) => {
                   const file = e.target.files[0];
                   if (file) {

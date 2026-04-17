@@ -10,7 +10,6 @@
     background-repeat: no-repeat;
     background-position: left -40px top 0;
     animation: shine ease-in-out 1s infinite;
-    /* background-color: red; */
 }
 @keyframes shine {
     to{

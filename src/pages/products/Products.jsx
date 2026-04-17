@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Product from "../product/Product";
 import "./products.css";
-import Emptycomponent from "../../components/empty/Emptycomponent";
 import { axiosInstance } from "../../config/axios";
 import toast from "react-hot-toast";
 import ProductsLoading from "./ProductsLoading";
@@ -23,7 +22,6 @@ const Products = () => {
         setallpages(response.data.totalPages);
         setLoadingPorducts(false);
       } catch (e) {
-        console.log("From Cathch", e.message);
         toast.error(e.message);
       }
     };
@@ -38,14 +36,10 @@ const Products = () => {
   };
   const nextfunction = () => {
     setLoadingPorducts(true);
-    if(pageIndex<allpages){
+    if (pageIndex < allpages) {
       setPageIndex(pageIndex + 1);
     }
   };
-
-  useEffect(() => {
-    // console.log("ProductsArray", productarr);
-  }, [productarr]);
 
   return (
     <>
@@ -60,20 +54,25 @@ const Products = () => {
                 <Product key={item.id} item={item} />
               ))}
             </div>
-            <div className="btn-prev-next">
-              <button
-                onClick={prevfunction}
-                className={`prev ${pageIndex === 1 ? "disable" : ""}`}
-              >
-                prev
-              </button>
-              <p>
-                {pageIndex} of {allpages}
-              </p>
-              <button onClick={nextfunction} className={`next ${pageIndex === allpages?"disable":""} `}>
-                next
-              </button>
-            </div>
+            {allpages > 1 && (
+              <div className="btn-prev-next">
+                <button
+                  onClick={prevfunction}
+                  className={`prev ${pageIndex === 1 ? "disable" : ""}`}
+                >
+                  prev
+                </button>
+                <p>
+                  {pageIndex} of {allpages}
+                </p>
+                <button
+                  onClick={nextfunction}
+                  className={`next ${pageIndex === allpages ? "disable" : ""} `}
+                >
+                  next
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

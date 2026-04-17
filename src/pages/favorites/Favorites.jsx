@@ -4,10 +4,7 @@ import "./favorites.css"
 import { MdFavoriteBorder } from "react-icons/md";
 import Product from '../product/Product'
 import Emptycomponent from '../../components/empty/Emptycomponent';
-import Products from '../products/Products';
-import { IoCloseSharp } from 'react-icons/io5';
-import { CiShoppingCart } from 'react-icons/ci';
-import { ImRocket } from 'react-icons/im';
+
 import { CartContext } from '../../components/context/CartContext';
 const Favorites = () => {
   const {favorites} = useContext(CartContext)

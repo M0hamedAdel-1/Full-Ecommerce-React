@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { FaLinkedinIn } from "react-icons/fa6";
@@ -9,6 +7,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
+
         <div className="content" data-aos="fade-up">
           <h3>
             kiosk <span>kids</span>
@@ -17,12 +16,14 @@ const Footer = () => {
             Platform for Shoes that keep kids feet comfortable all day long.
           </p>
         </div>
+
         <div className="mail" data-aos="fade-up">
-          <p className="one">Mail us at:</p>
+          <h3 className="one">Mail us at:</h3>
           <p className="two">kidsKiosk@contact.com</p>
         </div>
+
         <div className="follow_us" data-aos="fade-up">
-          <h3>Follow Us</h3>
+          <h3 className="one">Follow Us</h3>
           <div className="social-icons">
             <a href="https://www.facebook.com/share/1Gi3gk6z5u/" target="_blank">
             <FaFacebookF />
@@ -40,6 +41,8 @@ const Footer = () => {
             <FaGithub />
           </a>
           </div>
+
+          
         </div>
       </div>
       <p className="rights" >@2024 Kids Kiosk. All rights reserved</p>

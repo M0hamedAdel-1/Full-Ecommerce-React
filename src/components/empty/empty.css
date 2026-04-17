@@ -20,3 +20,9 @@
     margin-bottom: 10px;
     color: var(--text_color);
 }
+
+@media (max-width:767px) {
+.Empty_order .container .empty h1{
+        font-size: 15PX;
+    }
+}

@@ -50,13 +50,17 @@
 .product-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   background-color: #111418;
   border-radius: 10px;
   padding: 16px;
   margin-bottom: 16px;
 }
+.order-card .cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px ,1fr));
+  gap: 30px;
+} 
 
 .product-image {
   width: 80px;
@@ -65,10 +69,6 @@
   border-radius: 8px;
   background-color: #fff;
 }
-.orders img {
-    width: 200px;
-}
-
 .product-details {
   display: flex;
   flex-direction: column;
@@ -95,13 +95,6 @@
   gap: 8px;
   font-size: 13px;
   color: #9ca3af;
-}
-
-.color-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
 }
 
 .color-name {

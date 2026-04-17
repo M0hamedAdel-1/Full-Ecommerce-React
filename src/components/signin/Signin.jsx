@@ -4,8 +4,8 @@ import { FaEye } from "react-icons/fa";
 import { LuEyeClosed } from "react-icons/lu";
 
 import { axiosInstance } from "../../config/axios";
-import toast, { Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import toast  from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 // cookies
 import Cookies from "js-cookie";
 import { useAuth } from "../context/Auth";
@@ -82,6 +82,8 @@ const Signin = () => {
             Welcome to kiosk <span>kids</span>
           </h1>
 
+
+          
           <div className="input_group">
             <label htmlFor="email">email</label>
             <input
@@ -111,7 +113,7 @@ const Signin = () => {
             </span>
           </div>
 
-          <a  href="#">forget password?</a>
+          <Link  to="/forgetPassword">forget password?</Link>
 
           <button
             className="btn_signin"
@@ -120,15 +122,15 @@ const Signin = () => {
           >
             sign in
           </button>
-          <div className="or_div">
+          {/* <div className="or_div">
             <hr />
             <span>or</span>
             <hr />
-          </div>
+          </div> */}
 
-          <button className="btn_google">
+          {/* <button className="btn_google">
             <img src="../../../public/imgs/google.svg" /> continue with google
-          </button>
+          </button> */}
         </div>
       </div>
     </>

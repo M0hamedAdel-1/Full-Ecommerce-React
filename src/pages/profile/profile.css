@@ -11,13 +11,6 @@
     background-color: var(--bg_color);
 
 }
-
-/* .profile-container {
-    
-  padding: 24px;
-  
-} */
-
 .profile .container img {
   width: 140px;
 }
@@ -62,7 +55,7 @@
 .title {
   font-size: 40px;
   font-weight: 700;
-  color: white;
+  color: var(--text_color);
   margin-bottom: 32px;
 }
 
@@ -83,7 +76,7 @@
   border: 1px solid #6b7280;
   border-radius: 8px;
   padding: 12px 16px;
-  color: white;
+  color: var(--text_color);
   font-size: 16px;
   transition: border-color 0.2s;
 }
@@ -96,10 +89,7 @@
 .input-field:focus + .input-label,
 .input-field:not(:placeholder-shown) + .input-label {
   color: #f5b923;
-}
-
-input[type="file"]::-webkit-file-upload-button {
-    @apply hidden;
+  background-color: var(--bg_color);
 }
 
 .input-with-icons {
@@ -158,8 +148,9 @@ input[type="file"]::-webkit-file-upload-button {
 
 .image-modal-content {
   position: relative;
-  max-width: 90%;
+  width: 90%;
   max-height: 90%;
+  object-fit: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,8 +158,8 @@ input[type="file"]::-webkit-file-upload-button {
 
 .modal-image {
   max-width: 100%;
-  max-height: 90vh;
-  object-fit: contain;
+  max-height: 80vh;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   animation: zoomIn 0.0.5s ease;
@@ -206,7 +197,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .view-btn:hover {
-  color: white;
+  color: var(--text-color);
 }
 
 .delete-btn {

@@ -90,8 +90,8 @@
   cursor: pointer;
 }
 .signup .input_group input:focus {
-  box-shadow: 0 0 0 3px rgba(240, 180, 41, 0.3);
-}
+box-shadow: 0 0 0 3px var(--main_color);
+  border: 1px solid var(--main_color);}
 .signup .input_group label {
   position: absolute;
   top: -10px;
