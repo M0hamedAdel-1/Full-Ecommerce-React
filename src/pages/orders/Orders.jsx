@@ -5,7 +5,7 @@ import Emptycomponent from "../../components/empty/Emptycomponent";
 import Order from "./Order";
 import { axiosInstance } from "../../config/axios";
 import { useAuth } from "../../components/context/Auth";
-import OrdersLoading from "./ordersLoading";
+import OrdersLoading from "./OrdersLoading";
 import toast from "react-hot-toast";
 const Orders = () => {
   const { user } = useAuth();
