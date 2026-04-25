@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 // cookies
 import Cookies from "js-cookie";
 import { useAuth } from "../context/Auth";
+import { TbWashDryP } from "react-icons/tb";
+import { GoogleLogin } from "@react-oauth/google";
 
 const Signin = () => {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
@@ -18,6 +20,7 @@ const Signin = () => {
 
   const [isloading, setIsloading] = useState(false);
   const { setuser } = useAuth();
+  
 
   const submitLogin = async () => {
     const { email, password } = loginForm;
@@ -66,6 +69,28 @@ const Signin = () => {
     }
   };
 
+//  const handleGoogleLoginSuccess = async(credentialResponse)=>{
+//   setIsloading(true)
+//   try{
+//     const tokenId = credentialResponse.credential;
+
+//     const response = await axiosInstance.post( "/account/login",
+//       {idToken:tokenId}
+//     )
+//     if(response.status === 200){
+//       console.log(response);
+      
+//     }
+//   }catch(e){
+//     console.log(e);
+    
+//   }finally {
+//       setIsloading(false);
+//     }
+//  }
+
+
+ 
   return (
     <>
       <div className="sign_in ">
@@ -123,15 +148,27 @@ const Signin = () => {
           >
             sign in
           </button>
-          {/* <div className="or_div">
+          <div className="or_div">
             <hr />
             <span>or</span>
             <hr />
-          </div> */}
+          </div>
+               {/* <div>  */}
 
-          {/* <button className="btn_google">
+          <button className="btn_google" >
             <img src="/imgs/google.svg" /> continue with google
-          </button> */}
+          </button>
+{/* 
+           <GoogleLogin
+                onSuccess={handleGoogleLoginSuccess}
+                // onError={handleGoogleLoginFailure}
+                text="continue_with"
+                shape="pill"
+                size="large"
+              />  */}
+
+
+               {/* </div>  */}
         </div>
       </div>
     </>

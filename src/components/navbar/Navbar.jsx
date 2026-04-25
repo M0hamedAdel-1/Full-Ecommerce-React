@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { IoIosSunny } from "react-icons/io";
+// import { IoIosSunny } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -11,56 +11,61 @@ import { useAuth } from "../context/Auth";
 import { CartContext } from "../context/CartContext";
 import { ThemeContext } from "../context/ThemeContext";
 import toast from "react-hot-toast";
+import ThemeIcon from "../themeicon/ThemeIcon";
+import ProfileIcon from "../profileIcon/ProfileIcon";
 const navlinks = [
   { name: "Home", path: "/" },
   { name: "Products", path: "/products" },
   { name: "Favorites", path: "/favorites" },
   { name: "Orders", path: "/orders" },
   { name: "Connect", path: "/contact" },
+  { name: "Dashboard", path: "/admin/dashboard", adminonly: true },
 ];
+
 const Navbar = () => {
   const profileref = useRef(null);
-  const themeref = useRef(null);
+  // const themeref = useRef(null);
   const location = useLocation();
   const [active, setActive] = useState(false);
   const { user, setuser } = useAuth();
   const { cartitems } = useContext(CartContext);
-  const [showTheme, setShowTheme] = useState(false);
-  const [showprofile, setShowprofile] = useState(false);
-  const navigate = useNavigate();
+  // const [showTheme, setShowTheme] = useState(false);
+  // const [showprofile, setShowprofile] = useState(false);
+  // const navigate = useNavigate();
+
   // theme dark or light
-  const { setTheme } = useContext(ThemeContext);
+  // const { setTheme } = useContext(ThemeContext);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      // profile
-      if (profileref.current && !profileref.current.contains(e.target)) {
-        setShowprofile(false);
-      }
+  // useEffect(() => {
+  //   const handleClickOutside = (e) => {
+  //     // profile
+  //     if (profileref.current && !profileref.current.contains(e.target)) {
+  //       setShowprofile(false);
+  //     }
 
-      // theme
-      if (themeref.current && !themeref.current.contains(e.target)) {
-        setShowTheme(false);
-      }
-    };
+  //     // theme
+  //     // if (themeref.current && !themeref.current.contains(e.target)) {
+  //     //   setShowTheme(false);
+  //     // }
+  //   };
 
-    document.addEventListener("mousedown", handleClickOutside);
+  //   document.addEventListener("mousedown", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
-  const handleLogOut = () => {
-    Cookies.remove("user");
-    setuser(null);
-    navigate("/signin");
-    toast.success("Logged out successfully");
-  };
-  const handleProfile = () => {
-    navigate("/profile");
-    setActive(false);
-  };
+  // const handleLogOut = () => {
+  //   Cookies.remove("user");
+  //   setuser(null);
+  //   navigate("/signin");
+  //   toast.success("Logged out successfully");
+  // };
+  // const handleProfile = () => {
+  //   navigate("/profile");
+  //   setActive(false);
+  // };
   return (
     <>
       <header>
@@ -78,76 +83,30 @@ const Navbar = () => {
                   <IoMdClose />
                 </div>
                 <ul className="links">
-                  {navlinks.map(({ name, path }, i) => (
-                    <li
-                      key={i}
-                      className={location.pathname === path ? "active" : ""}
-                    >
-                      <Link onClick={() => setActive(false)} to={path}>
-                        {name}
-                      </Link>
-                    </li>
-                  ))}
+                  {navlinks.map(
+                    ({ name, path, adminonly }, i) =>
+                      (!adminonly || user.role === "admin") && (
+                        <li
+                          key={i}
+                          className={location.pathname === path ? "active" : ""}
+                        >
+                          <Link onClick={() => setActive(false)} to={path}>
+                            {name}
+                          </Link>
+                        </li>
+                      ),
+                  )}
                 </ul>
                 <div className={"all_icons "}>
-                  <div
-                    ref={themeref}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setShowTheme(!showTheme);
-                    }}
-                    className="icon icon_theme"
-                  >
-                    <IoIosSunny />
-
-                    <div className={`theme ${showTheme ? "show" : ""}`}>
-                      <button
-                        onClick={() => {
-                          setTheme("dark");
-                        }}
-                      >
-                        dark
-                      </button>
-                      <button
-                        onClick={() => {
-                          setTheme("light");
-                        }}
-                      >
-                        light
-                      </button>
-                      <button
-                        onClick={() => {
-                          setTheme("system");
-                        }}
-                      >
-                        system
-                      </button>
-                    </div>
+                  
+                  <div className="icon">
+                        <ThemeIcon/>
                   </div>
-                  <div
-                    ref={profileref}
-                    className="icon icon_profile"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setShowprofile(!showprofile);
-                    }}
-                  >
-                    {/* <CgProfile/> */}
-                    {user ? (
-                      <img
-                        src={user?.image}
-                        alt="profile"
-                        className="profile_avatar"
-                      />
-                    ) : (
-                      <CgProfile />
-                    )}
-
-                    <div className={`profile ${showprofile ? "show" : ""}`}>
-                      <button onClick={handleProfile}>Profile</button>
-                      <button onClick={handleLogOut}>Log Out</button>
-                    </div>
+                  
+                  <div className="icon">
+                    <ProfileIcon/>
                   </div>
+
                   <div className="icon">
                     <NavLink
                       className="cart"

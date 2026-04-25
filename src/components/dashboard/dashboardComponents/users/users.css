@@ -1,0 +1,118 @@
+
+
+.users-table-container {
+   position: relative;
+ background-color: var(--accent_color);
+   padding: 30px;
+  margin: 20px;
+  border-radius: 12px;
+}
+
+/* ===== USERS TABLE ===== */
+.users-table {
+  
+   width: 100%;
+  border-collapse: collapse;
+  background-color: var(--accent_color);
+  color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+
+
+/* Header styling */
+.users-table thead {
+  background-color: var(--black_color);
+}
+
+.users-table th {
+  padding: 18px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+  white-space: nowrap;
+}
+
+/* Body styling */
+.users-table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.users-table tbody tr {
+   background-color: var(--black_color);
+  border-bottom: 1px solid #1e293b;
+  transition: background-color 0.2s ease;
+}
+
+
+.users-table tbody tr:hover {
+  background-color: #1e1e1e;
+}
+
+/* Column widths */
+.col-index {
+  width: 60px;
+  text-align: center;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.col-image {
+  width: 90px;
+  text-align: center;
+}
+
+.col-name {
+  width: 160px;
+  min-width: 140px;
+  color: #e8e8e8;
+  font-weight: 500;
+}
+
+.col-email {
+  width: 260px;
+  min-width: 220px;
+  color: #b0b0b0;
+}
+
+.col-phone {
+  width: 130px;
+  min-width: 110px;
+  color: #b0b0b0;
+}
+
+.col-address {
+  width: 100px;
+  min-width: 80px;
+  color: #b0b0b0;
+}
+
+.col-created {
+  width: 170px;
+  min-width: 150px;
+  color: #b0b0b0;
+  white-space: nowrap;
+}
+
+/* User image */
+.user-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+}
+
+.load_center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

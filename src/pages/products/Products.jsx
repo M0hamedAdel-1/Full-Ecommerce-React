@@ -15,8 +15,7 @@ const Products = () => {
     const getProducts = async () => {
       try {
         const response = await axiosInstance.get(
-          `/product/get-all-products?pageIndex=${pageIndex}&pageSize=12`,
-        );
+          `/product/get-all-products?pageIndex=${pageIndex}&pageSize=12`,);
 
         setProductarr(response.data.data);
         setallpages(response.data.totalPages);

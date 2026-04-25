@@ -1,0 +1,28 @@
+.heading_component{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    background-color: var(--accent_color);
+    padding: 15px;
+    border-radius: 20px;
+    margin:20px 20px 30px 20px;
+
+}
+.heading_component h1{
+    color: var(--text_color);
+}
+.heading_component svg{
+    text-align: center;
+    font-size: 20px;
+      transition: transform 0.3s ease, color 0.3s ease;
+
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

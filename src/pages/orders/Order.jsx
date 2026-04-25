@@ -3,6 +3,7 @@ import "./order.css"
 const Order = ({order}) => {
 
 const date = new Date(order.createdAt);
+
   return (
      <div  className="order-card">
       {/* Header */}

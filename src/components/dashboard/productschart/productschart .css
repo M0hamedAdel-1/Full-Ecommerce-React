@@ -1,0 +1,11 @@
+.chart-box{
+    background-color: var(--accent_color);
+    padding: 12px;
+    border-radius: 12px;
+    
+}
+.chart-box h1{
+    color: var(--text_color);
+    font-size: 30px;
+    margin-bottom: 10px;
+}

@@ -22,6 +22,19 @@ import Profile from "./pages/profile/Profile";
 import SuccessOrder from "./pages/successOrder/SuccessOrder";
 import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
 import OTPForm from "./pages/ForgetPassword/OTPForm";
+import Dashboard from "./components/dashboard/Dashboard";
+import ProtectedDashboard from "./route/ProtectedDashboard";
+import DashboardLayout from "./layouts/DashboardLayout";
+import DashboardProducts from "./components/dashboard/dashboardComponents/products/DashboardProducts";
+import Categories from "./components/dashboard/dashboardComponents/categories/Categories";
+import DashboardOrders from "./components/dashboard/dashboardComponents/orders/DashboardOrders";
+import Users from "./components/dashboard/dashboardComponents/users/Users";
+import AddNewProduct from "./components/dashboard/dashboardComponents/products/AddNewProduct";
+import AddCategory from "./components/dashboard/dashboardComponents/categories/AddCategory";
+import ShowImages from "./components/dashboard/dashboardComponents/products/ShowImages";
+import AddNewImages from "./components/dashboard/dashboardComponents/products/AddNewImages";
+import EditCategory from "./components/dashboard/dashboardComponents/categories/EditCategory";
+import EditProduct from "./components/dashboard/dashboardComponents/products/EditProduct";
 function App() {
   return (
     <>
@@ -57,6 +70,24 @@ function App() {
           <Route path="/verify-otp" element={<OTPForm />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/verify" element={<Verification />} />
+        </Route>
+
+        <Route element={<ProtectedDashboard/>}>
+            <Route element={<DashboardLayout/>} path="/admin">
+                <Route path="dashboard" element={<Dashboard/>}/>
+                <Route path="products" element={<DashboardProducts/>}/>
+                  <Route path="products/add" element={<AddNewProduct/>}/>
+                  <Route path="products/edit-product/:id" element={<EditProduct/>}/>
+                    <Route path="products/images/:id" element={<ShowImages/>}/>
+                        <Route path="products/images/:id/add" element={<AddNewImages/>}/>
+
+
+                <Route path="categories" element={<Categories/>}/>
+                <Route path="categories/addCategory" element={<AddCategory/>}/>
+                <Route path="categories/edit/:id" element={<EditCategory/>}/>
+                <Route path="orders" element={<DashboardOrders/>}/>
+                <Route path="users" element={<Users/>}/>
+            </Route>
         </Route>
 
       </Routes>

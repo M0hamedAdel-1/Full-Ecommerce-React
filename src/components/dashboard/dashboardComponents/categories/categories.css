@@ -1,0 +1,23 @@
+.dashboard_categories .add_category{
+    padding: 15px 20px ;
+    background-color: var(--main_color);
+    color: var(--text_color);
+    margin: 20px 0 32px 20px;
+    border-radius: 12px;
+}
+.edit_categories .form,
+.add_new_category .form{
+      padding: 1.25rem;
+      background-color: var(--accent_color);
+      margin: 20px;
+      border-radius: 12px;
+}
+.edit_categories .form .submit_category,
+.add_new_category .form .submit_category{
+        padding: 15px 20px;
+    background-color: var(--main_color);
+    color: var(--text_color);
+    margin: 20px 0 32px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+}

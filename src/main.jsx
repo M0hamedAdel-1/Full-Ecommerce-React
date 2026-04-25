@@ -7,6 +7,7 @@ import { AuthProvider } from "./components/context/Auth.jsx";
 import CartProvider from "./components/context/CartContext.jsx";
 import ThemeProvider from "./components/context/ThemeContext.jsx";
 import Aos from "aos";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 Aos.init({
   duration: 1000,
@@ -15,8 +16,10 @@ Aos.init({
 });
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
     <StrictMode>
+  {/* <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}> */}
+
+  <BrowserRouter>
       <ThemeProvider>
         <AuthProvider>
           <CartProvider>
@@ -24,6 +27,7 @@ createRoot(document.getElementById("root")).render(
           </CartProvider>
         </AuthProvider>
       </ThemeProvider>
+  </BrowserRouter>
+  {/* </GoogleOAuthProvider> */}
     </StrictMode>
-  </BrowserRouter>,
 );

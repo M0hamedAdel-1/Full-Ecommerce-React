@@ -1,0 +1,35 @@
+/* theme */
+.icon_container .icon svg {
+  font-size: 25px;
+  color: var(--secondary_color);
+}
+.icon_container .icon_theme{
+  position: relative;
+}
+.icon_container .theme{
+  width: 100px;
+  height: 100px;
+  padding: 15px;
+  background-color: var(--bg_color);
+  border-radius: 10px;
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  border: 1px solid var(--border_color);  
+  display: none;
+  transition: 0.3s;
+
+}
+.icon_container .theme.show{
+  display: block;
+}
+.icon_container .theme button{
+  color: var(--secondary_color);
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: 0.5s;
+}
+.icon_container .theme button:hover
+{
+  color: var(--main_color);
+}

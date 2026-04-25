@@ -1,0 +1,40 @@
+.header_dashboard{
+    background-color: var(--accent_color);
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    padding: 20px 25px;
+    
+    
+} 
+@media (max-width:991px) {
+    .header_dashboard{
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+}
+.header_dashboard .icon_burger{
+    font-size: 30px;
+    color: var(--text_color);
+    cursor: pointer;
+    
+    @media(min-width: 991px) {
+        display: none;
+    }
+}
+.header_dashboard .icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    margin-right: 30px;
+}
+.header_dashboard .icons .icon{
+    margin-left: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

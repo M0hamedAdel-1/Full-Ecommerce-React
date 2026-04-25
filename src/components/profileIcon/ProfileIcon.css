@@ -1,0 +1,32 @@
+
+.profile_container .icon_profile{
+  position: relative;
+}
+.profile_container .profile{
+    width: 100px;
+  height: 100px;
+  padding: 15px;
+  background-color: var(--bg_color);
+  border-radius: 10px;
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  border: 1px solid var(--border_color);  
+  display: none;
+  line-height: 1.7;
+  transition: 0.3s;
+}
+.profile_container .profile button{
+  color: var(--secondary_color);
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: 0.5s;
+}
+.profile_container .profile.show{
+  display: block;
+}
+
+.profile_container .profile button:hover
+{
+  color: var(--main_color);
+}
