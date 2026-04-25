@@ -9,7 +9,11 @@ import { axiosInstance } from '../../config/axios'
 import TableComponent from './TableComponent'
 import { OrbitProgress } from 'react-loading-indicators'
 import toast from 'react-hot-toast'
+import OrderDetails from './OrderDetails'
 const Dashboard = () => {
+  const [analytics,setanalytics] = useState(null)
+  const [loading,setloading] = useState(false)
+  
 
   const headers = [
     {
@@ -43,7 +47,7 @@ const Dashboard = () => {
       
       <span
         className="view"
-        onClick={() => handleView(order._id || order.id)}
+        onClick={() => handleView(order.id)}
       >
         View
       </span>
@@ -56,13 +60,9 @@ const Dashboard = () => {
   ),
 }
   ];
-   const handleView=(id)=>{
-    console.log(id);
-    
-  }
+ 
 
-  const [analytics,setanalytics] = useState(null)
-  const [loading,setloading] = useState(false)
+
    const getAnalytics = async()=>{
       setloading(true)
         try{  
@@ -92,8 +92,14 @@ const Dashboard = () => {
   const click_refresh =()=>{
     getAnalytics()
   }
+
+  //   const handleView=(id)=>{
+  //   console.log(id);
+  // }
+
+
   return (
-    <div>
+    <div className='dashboard_home'>
         <HeadingComponent heading="Analytics" Icon={FiRefreshCw} loading={loading} click_arrow={click_refresh}/>
         {analytics && <CardDashboard metrics = {analytics.metrics} /> }
         <div className='charts'>
@@ -106,6 +112,10 @@ const Dashboard = () => {
         <div className='table_content'>
            {analytics && <TableComponent headers={headers} rows={analytics.recentOrders} pageIndex={1} /> }
         
+        </div>
+
+        <div className='order_details'>
+          {/* <OrderDetails/> */}
         </div>
     </div>
   )

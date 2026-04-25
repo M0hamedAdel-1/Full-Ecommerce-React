@@ -12,9 +12,10 @@ body {
 }
 
 :root {
+      --dark-gray: #666666;
   --main_color: #feb710;
   --secondary_color: #232e33;
-  --accent_color: #232e33;
+  --accent_color: #e0e6e9;
 
   --bg_color: #f5f7fa;
   --white_color: #ffffff;

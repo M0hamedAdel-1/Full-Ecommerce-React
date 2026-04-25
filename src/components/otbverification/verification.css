@@ -1,17 +1,4 @@
 
- :root {
-  --main_color: #feb710;;      /* أزرق فاتح (الأساسي) */
-  --secondary_color: #232e33;; /* برتقالي (زرار / CTA) */
-  --accent_color: #FF80AB;    /* وردي خفيف */
-
-  --bg_color: #F5F7FA;        /* خلفية فاتحة */
-  --white_color: #FFFFFF;
-
-  --text_color: #2D3436;      /* نص أساسي */
-  --p_color: #7B8A8B;         /* نص ثانوي */
-
-  --border_color: #E0E0E0;
-}
 
 .verification_page{
     position: relative;

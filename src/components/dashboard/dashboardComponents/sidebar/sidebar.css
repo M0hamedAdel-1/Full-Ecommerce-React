@@ -1,6 +1,6 @@
 .sidebar{
-    background-color: var(--accent_color);
-
+    background-color: var(--bg_color);
+    border-right: 1px solid var(--main_color);
 
 }
 

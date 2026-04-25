@@ -1,10 +1,10 @@
 import React from 'react'
 
-const InputSelectOptions = ({label,optionone,optiontwo,optionthree,optionfour,onChange}) => {
+const InputSelectOptions = ({label, name, optionone,optiontwo,optionthree,optionfour,onChange}) => {
   return (
     <div className="input_group">
             <label htmlFor="file">{label}</label>
-            <select onChange={onChange}>
+            <select onChange={onChange} name={name}>
                 <option value="">{label}</option>
                 {optionone && <option value={optionone}>{optionone}</option>}
                 {optiontwo && <option value={optiontwo}>{optiontwo}</option>}

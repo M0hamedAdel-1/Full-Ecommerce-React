@@ -3,7 +3,6 @@ import HeadingComponent from "../../headingcomponent/HeadingComponent";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import InputFile from "../../inputs/InputFile";
-import EditorInput from "../../inputs/EditorInput";
 import toast from "react-hot-toast";
 import { axiosInstance } from "../../../../config/axios";
 
@@ -85,19 +84,6 @@ const AddCategory = () => {
             value={category.categoryName}
             onChange={handleChange}
           />
-
-          <div className="editor">
-            <EditorInput
-              value={category.description}
-              onChange={(content) =>
-                setCategory((prev) => ({
-                  ...prev,
-                  description: content,
-                }))
-              }
-            />
-          </div>
-
           <button className="submit_category" type="submit" disabled={loading}>
             {loading ? "Adding..." : "Add Category"}
           </button>

@@ -2,14 +2,14 @@
     display: flex;
     align-content: center;
     justify-content: space-between;
-    background-color: var(--accent_color);
+    background-color: var(--dark-gray);
     padding: 15px;
     border-radius: 20px;
     margin:20px 20px 30px 20px;
 
 }
 .heading_component h1{
-    color: var(--text_color);
+    color: var(--white_color);
 }
 .heading_component svg{
     text-align: center;

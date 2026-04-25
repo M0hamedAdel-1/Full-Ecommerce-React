@@ -1,5 +1,5 @@
 .header_dashboard{
-    background-color: var(--accent_color);
+    background-color: var(--bg_color);
     position: sticky;
     z-index: 999;
     top: 0;
