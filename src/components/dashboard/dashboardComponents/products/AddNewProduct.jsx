@@ -221,7 +221,15 @@ const handledeletesize =(idx,sizeIndex)=>{
           />
           <InputSelectOptions
             name="productCategory"
-            onChange={handleChange}
+            onChange={(e) => {
+                    const selected = categories.find(c => c.id === e.target.value);
+
+                    setProduct(prev => ({
+                      ...prev,
+                      productCategory: selected?.name,
+                      productCategoryId: selected?.id,
+                    }));
+                  }}
             label="choose Category"
             options={categories}
           />

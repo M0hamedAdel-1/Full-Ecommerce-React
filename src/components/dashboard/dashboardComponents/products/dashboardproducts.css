@@ -460,14 +460,12 @@
 
 
 .image_box .icons{
-  display: flex;
-}
-.icons {
-  position: absolute;
+   position: absolute;
     right: 11px;
     top: 35%;
     gap: 10px;
 }
+
 .icon_delete svg,
 .icon-eye svg{
   color: var(--main_color);
