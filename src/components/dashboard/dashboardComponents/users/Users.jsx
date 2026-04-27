@@ -10,7 +10,7 @@ import { OrbitProgress } from 'react-loading-indicators'
 import Pagination from '../../Pagination '
 const Users = () => {
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [search,setSearch] = useState("")
     const [users, setusersarr] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const headers = [
@@ -79,14 +79,19 @@ const getusers = async () => {
     const click_refresh =()=>{
       getusers()
 
-    }
 
+    }
     
+    const keyboard = (search || "").toLowerCase()
+    const filteredusers = users.filter((u)=>
+    `${u.firstName || ""} ${u.secondName || ""} ${u.email || ""} ${u.phone || ""} ${new Date (u.createdAt).toLocaleString}`
+    .toLowerCase().includes(keyboard)
+  )
   return (
    <div className="dashboard_orders">
       <HeadingComponent heading="users" Icon={FiRefreshCw} click_arrow={click_refresh} loading={isLoading} />
       <div>
-        <SearchComponents />
+        <SearchComponents value={search} onChange={(e)=>setSearch(e.target.value)} />
       </div>
       <div>
         {isLoading ? (
@@ -97,7 +102,7 @@ const getusers = async () => {
           <div className="table_content">
             <TableComponent
               headers={headers}
-              rows={users}
+              rows={search?filteredusers:users}
               pageIndex={currentPage}
             />
             <Pagination pageIndex={currentPage}

@@ -13,7 +13,7 @@ import { OrbitProgress } from 'react-loading-indicators'
 import { MdDelete, MdOutlineModeEditOutline } from 'react-icons/md'
 import Swal from 'sweetalert2'
 const Categories = () => {
-
+const [search,setSearch] = useState()
 
     const [categories, setcategories] = useState([]);
     const [loading, setloading] = useState(false);
@@ -110,13 +110,17 @@ const headers = [
     getCategory();
   }, []);
 
-  
+  const filteredcategories = categories.filter((p) =>
+  p.name.toLowerCase().includes(search?.toLowerCase() || "")
+);
   return (
     <div className='dashboard_categories'>
       <HeadingComponent heading="categories"/>
       <Link className='add_category' to="addCategory">add category</Link>
       <div>
-        <SearchComponents/>
+        <SearchComponents value={search} onChange={(e)=>setSearch(e.target.value)} />
+
+        
       </div>
       <div>
         {loading ? (
@@ -127,7 +131,7 @@ const headers = [
           <div className="table_content">
             <TableComponent
               headers={headers}
-              rows={categories}
+              rows={search ? filteredcategories : categories}
               pageIndex={pageIndex}
             />
           </div>

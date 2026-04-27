@@ -61,6 +61,7 @@ const DashboardOrders = () => {
     
   }
 
+  const [search, setSearch] = useState("");
   const [orders, setorders] = useState([]);
   const [loading, setloading] = useState(false);
 
@@ -95,11 +96,19 @@ const DashboardOrders = () => {
     getOrders()
 
   }
+  
+const keyword = (search || "").toLowerCase();
+
+const filteredOrders = orders.filter((o) =>
+  `${o.firstName || ""} ${o.secondName || ""} ${o.address || ""} ${o.email || ""} ${o.phone || ""} ${new Date(o.createdAt).toLocaleString()}`
+    .toLowerCase()
+    .includes(keyword)
+);
   return (
     <div className="dashboard_orders">
       <HeadingComponent heading="orders" Icon={FiRefreshCw} click_arrow={click_refresh} loading={loading} />
       <div>
-        <SearchComponents />
+        <SearchComponents value={search} onChange={(e)=>setSearch(e.target.value)} />
       </div>
 
       <div>
@@ -111,7 +120,7 @@ const DashboardOrders = () => {
           <div className="table_content">
             <TableComponent
               headers={headers}
-              rows={orders}
+              rows={search?filteredOrders:orders}
               pageIndex={pageIndex}
             />
             <Pagination

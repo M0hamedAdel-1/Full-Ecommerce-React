@@ -41,7 +41,6 @@ const EditProduct = () => {
 
 const handleChange = (e) => {
   const { name, value, files, type } = e.target;
-console.log(name, value);
   if (type === "file" && files && files.length > 0) {
     const file = files[0];
 

@@ -15,6 +15,8 @@ import { MdDelete } from 'react-icons/md'
 import { OrbitProgress } from 'react-loading-indicators'
 
 const DashboardProducts = () => {
+  const [search, setSearch] = useState("");
+
       const navigate = useNavigate()
   const [pageIndex, setPageIndex] = useState(1);
   const [allpages, setallpages] = useState();
@@ -131,6 +133,9 @@ const DashboardProducts = () => {
   }
   
   
+ const filteredProducts = productarr.filter((p) =>
+  p.name.toLowerCase().includes(search.toLowerCase())
+);
   return (
     <>
 
@@ -139,7 +144,11 @@ const DashboardProducts = () => {
       <HeadingComponent heading="products"/>
       <Link className='add_new_product' to="add">add to product</Link>
       <div>
-      <SearchComponents/>
+      <SearchComponents value={search} onChange={(e)=>setSearch(e.target.value)}/>
+
+    
+
+
       </div>
       <div>
         {isLoading?(
@@ -151,7 +160,7 @@ const DashboardProducts = () => {
             <div className='table_content'>
 
 
-          <TableComponent headers={headers} rows={productarr} pageIndex={pageIndex} />
+          <TableComponent headers={headers} rows={search?filteredProducts:productarr} pageIndex={pageIndex} />
           <Pagination pageIndex={pageIndex} totalPages={allpages} setPageIndex={setPageIndex}/>
         </div>
           </>

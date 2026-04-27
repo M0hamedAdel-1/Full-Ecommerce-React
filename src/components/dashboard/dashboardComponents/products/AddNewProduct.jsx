@@ -96,6 +96,7 @@ const AddNewProduct = () => {
   validateVariants()
     const formData = new FormData();
     Object.entries(payload).forEach(([key, value]) => {
+      console.log(key, value);
       formData.append(key, value);
     });
 
