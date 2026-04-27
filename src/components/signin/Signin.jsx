@@ -140,17 +140,7 @@ const Signin = () => {
           <button className="btn_google" >
             <img src="/imgs/google.svg" /> continue with google
           </button>
-{/* 
-           <GoogleLogin
-                onSuccess={handleGoogleLoginSuccess}
-                // onError={handleGoogleLoginFailure}
-                text="continue_with"
-                shape="pill"
-                size="large"
-              />  */}
 
-
-               {/* </div>  */}
         </div>
       </div>
     </>
