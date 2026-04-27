@@ -13,6 +13,9 @@ import OrderDetails from './OrderDetails'
 const Dashboard = () => {
   const [analytics,setanalytics] = useState(null)
   const [loading,setloading] = useState(false)
+  const [orders,setorders] = useState([])
+  const [selectedOrder, setSelectedOrder] = useState(null);
+
   
 
   const headers = [
@@ -61,13 +64,19 @@ const Dashboard = () => {
 }
   ];
  
-
+ const handleView =(id)=>{
+  const selectedOrder = orders.find((o) => o.id === id);
+  setSelectedOrder(selectedOrder)
+ }
 
    const getAnalytics = async()=>{
       setloading(true)
         try{  
             const response = await axiosInstance.get("/analytics")
             setanalytics(response.data)
+            setorders(response.data.recentOrders)
+           
+
         }catch (e) {
         const message =
           e.response?.data?.error?.message ||
@@ -93,10 +102,6 @@ const Dashboard = () => {
     getAnalytics()
   }
 
-  //   const handleView=(id)=>{
-  //   console.log(id);
-  // }
-
 
   return (
     <div className='dashboard_home'>
@@ -115,8 +120,7 @@ const Dashboard = () => {
         </div>
 
         <div className='order_details'>
-          {/* <OrderDetails/> */}
-        </div>
+                {selectedOrder && <OrderDetails order={selectedOrder} onclose={()=>setSelectedOrder(null)} />}</div>
     </div>
   )
 }

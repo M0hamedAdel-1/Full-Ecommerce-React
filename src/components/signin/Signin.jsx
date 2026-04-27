@@ -69,25 +69,7 @@ const Signin = () => {
     }
   };
 
-//  const handleGoogleLoginSuccess = async(credentialResponse)=>{
-//   setIsloading(true)
-//   try{
-//     const tokenId = credentialResponse.credential;
 
-//     const response = await axiosInstance.post( "/account/login",
-//       {idToken:tokenId}
-//     )
-//     if(response.status === 200){
-//       console.log(response);
-      
-//     }
-//   }catch(e){
-//     console.log(e);
-    
-//   }finally {
-//       setIsloading(false);
-//     }
-//  }
 
 
  

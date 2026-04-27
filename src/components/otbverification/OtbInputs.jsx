@@ -61,7 +61,6 @@ const OtbInputs = () => {
   const handleSubmit = async () => {
 
     const code = otp.join("");
-    console.log("OTP Code:", code);
 
     try {
             setloading(true)
@@ -76,10 +75,6 @@ const OtbInputs = () => {
       toast.success(res.data.message);
 
       navigate("/signin");
-
-      //  const isVerified = res.data.user.verified;
-
-      // console.log(isVerified);
     } catch (e) {
       toast.error(e.response?.data?.message || "not correct otp");
     }finally{

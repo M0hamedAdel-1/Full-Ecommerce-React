@@ -1,11 +1,13 @@
-const OrderDetails = () => {
-//   if (!order) return null;
+
+const OrderDetails = ({order, onclose}) => {
+  if (!order) return null;
   return (
-    <div className="modal_overlay" >
+    <div className={`modal_overlay `}  >
       <div className="modal_box" onClick={(e) => e.stopPropagation()}>
         
         {/* Close */}
-        <button className="close_btn" >✕</button>
+        <button className="close_btn" onClick={onclose} 
+          >✕</button>
 
         <h2 className="modal_title">Order Details</h2>
 
@@ -13,23 +15,23 @@ const OrderDetails = () => {
         <div className="order_header">
           <div>
             <span>Order ID</span>
-            <h4>555555555555555555555555555555555555</h4>
+            <h4>{order.id}</h4>
           </div>
 
           <div>
             <span>Order Date</span>
-            <h4>12200</h4>
+            <h4>{order.createdAt}</h4>
           </div>
         </div>
 
         {/* Customer */}
-        {/* <div className="section">
+        <div className="section">
           <h3>Customer Information</h3>
 
           <div className="info_grid">
             <div>
               <span>Full Name</span>
-              <p>{order.name}</p>
+              <p>{order.firstName}  {order.secondName}</p>
             </div>
 
             <div>
@@ -47,16 +49,16 @@ const OrderDetails = () => {
               <p>{order.address}</p>
             </div>
           </div>
-        </div> */}
+        </div>
 
         {/* Items */}
-        {/* <div className="section">
+        <div className="section">
           <h3>Order Items</h3>
 
           {order.items.map((item, i) => (
             <div className="item_card" key={i}>
               <div className="item_left">
-                <img src={item.image} alt="" />
+                <img src={item.imageUrl} alt="" />
 
                 <div>
                   <h4>{item.name}</h4>
@@ -72,11 +74,11 @@ const OrderDetails = () => {
 
               <div className="item_price">
                 <h4>${item.price}</h4>
-                <p>Total: ${item.total}</p>
+                <p>Total: ${order.totalAmount}</p>
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
 
       </div>
     </div>

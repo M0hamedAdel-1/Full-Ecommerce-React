@@ -105,6 +105,11 @@
   color: #3b82f6;
   margin-right: 10px;
   cursor: pointer;
+  transition: 0.4s;
+}
+.all_table .view:hover{
+  color: #3b83f6c7;
+  text-decoration: underline;
 }
 
 /* Status */

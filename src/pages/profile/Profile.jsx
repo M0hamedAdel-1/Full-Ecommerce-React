@@ -26,7 +26,6 @@ const Profile = () => {
 
   useEffect(() => {
     if (userobj) {
-      console.log("userobj", userobj);
       setprofileform({
         ...userobj,
         imagePreview: userobj.image || null,
@@ -101,7 +100,7 @@ const Profile = () => {
         setuser(response.data);
       }
     } catch (e) {
-      console.error("Update failed:", e.response?.data || e.message);
+      toast.error("Update failed:", e.response?.data || e.message);
     } finally {
       setloading(false);
     }
