@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeadingComponent from "../../headingcomponent/HeadingComponent";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
@@ -12,6 +12,8 @@ import { axiosInstance } from "../../../../config/axios";
 import toast from "react-hot-toast";
 
 const AddNewProduct = () => {
+  const  [categories,setcategories] = useState([])
+  const [,setloading] = useState(false)
   const navigate = useNavigate();
   const handleArrow = () => {
     navigate("/admin/products");
@@ -35,8 +37,6 @@ const AddNewProduct = () => {
 
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
-    console.log({ name, value, files, type });
-
     setProduct((prev) => ({
       ...prev,
       [name]: type === "file" ? files[0] : value,
@@ -45,18 +45,57 @@ const AddNewProduct = () => {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-
+    
     const payload = {
       ...product,
       priceBeforeDiscount: +product.price + +product.discount,
       variantsDto: JSON.stringify(product.variants),
-      productCategoryId: "69d0dc7655c0475bd95665e9",
+      productCategoryId: product.productCategoryId,
     };
+    if(!product.name){
+      toast.error("Product name is required")
+      return
+    }
+     if(!product.image){
+      toast.error("Product image is required")
+      return
+    }
+     if(!product.description){
+      toast.error("Product description is required")
+      return
+    }
+    if (!product.price || isNaN(product.price)){
+      toast.error("Valid price is required")
+      return
+    }  
+     if (!product.productCategory)
+      {
+        toast.error("Category is required")
+        return 
+      } 
+      // discount
+  if (product.hasDiscount) {
+    if (!product.discount || isNaN(product.discount)) {
+      toast.error("Valid discount is required")
+      return ;
+    }
+  }
+  const validateVariants = () =>
+  !product.variants.some((variant, i) =>
+    !variant.color.trim()
+      ? (toast.error(`Color ${i + 1} is required`), true)
+      : variant.sizes.some((size) =>
+          !size.size || size.size <= 0
+            ? (toast.error(`Size  required in color ${i + 1}`), true)
+            : !size.quantity || size.quantity <= 0
+            ? (toast.error(`required Quantity  in color ${i + 1}`), true)
+            : false
+        )
+  );
 
-
+  validateVariants()
     const formData = new FormData();
     Object.entries(payload).forEach(([key, value]) => {
-      console.log(key, value);
       formData.append(key, value);
     });
 
@@ -112,6 +151,52 @@ const AddNewProduct = () => {
     setProduct({ ...product, variants: productVariants });
   };
 
+  useEffect(() => {
+  const getCategories = async () => {
+    setloading(true)
+    try {
+      const response = await axiosInstance.get("/category/get-all-categories");
+
+      setcategories(response.data);
+      
+    } catch (error) {
+      toast.error( error.message,"Failed to load categories");
+    }finally{
+      setloading(false)
+    }
+  };
+
+  getCategories();
+}, []);
+
+
+const handleAddSize =(idx)=>{
+    const productVariants = [...product.variants];
+
+    const productsize = productVariants[idx].sizes
+
+    productsize.push({size: '', quantity: ''})
+ setProduct({ ...product, variants: productVariants });
+    
+  
+}
+const handledeletesize =(idx,sizeIndex)=>{
+      const productVariants = [...product.variants];
+      const uppdatevariants = productVariants.map((variant,i)=>{
+        if(i === idx){
+          return{
+            ...variant,
+            sizes:variant.sizes.filter((size,index)=>index !== sizeIndex)
+          }
+        }
+        return variant
+      })
+      
+      
+      setProduct({...product,variants:uppdatevariants})
+  
+}
+
   return (
     <div className="add_new_product">
       <HeadingComponent
@@ -137,10 +222,7 @@ const AddNewProduct = () => {
             name="productCategory"
             onChange={handleChange}
             label="choose Category"
-            optionone="Nike"
-            optiontwo="Croocs"
-            optionthree="Shirts"
-            optionfour="Bags"
+            options={categories}
           />
           <InputFile
             name="price"
@@ -154,8 +236,10 @@ const AddNewProduct = () => {
               setProduct({ ...product, hasDiscount: e.target.value === "true" })
             }
             label="has Discount"
-            optionone="true"
-            optiontwo="false"
+            options={[
+              { name: "true" },
+              { name: "false" },
+            ]}
           />
           {product.hasDiscount && (
             <InputFile
@@ -190,10 +274,11 @@ const AddNewProduct = () => {
               </button>
             </div>
 
+            <div className="cards">
             {product.variants.map((el, idx) => {
               const currentSize = el.sizes;
               return (
-                <div className="color_card">
+                  <div className="color_card" key={idx}>
                   <div className="color_name">
                     <InputFile
                       type="text"
@@ -204,9 +289,11 @@ const AddNewProduct = () => {
                       <MdDelete />
                     </div>
                   </div>
+                  <div className="quantity_container">
                   {currentSize.map((size, sizeIndex) => {
                     return (
-                      <div className="quantity_size">
+
+                      <div className="quantity_size" key={sizeIndex}>
                         <InputFile
                           onChange={(e) =>
                             onSizeAndQuantityChange(
@@ -228,16 +315,20 @@ const AddNewProduct = () => {
                               idx,
                             )
                           }
-                        />
-                        <div className="icon">
-                          <MdDelete />
+                          />
+                        <div className="icon" onClick={()=>handledeletesize(idx,sizeIndex)} >
+                          <MdDelete  />
                         </div>
-                      </div>
-                    );
-                  })}
+                        </div>
+
+                      );
+                    })}
+                        <button type="button" onClick={()=>handleAddSize(idx)} className="add_size">add size</button>
+                    </div>
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
         <div className="add_product">

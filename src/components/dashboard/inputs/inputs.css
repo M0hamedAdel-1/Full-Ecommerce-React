@@ -39,60 +39,9 @@ box-shadow: 0 0 0 3px var(--main_color);
 .editor_input label{
     color: var(--text_color);
 }
-.product-colors-container{
-    margin-top: 20px;
-}
-.product-colors-container .header{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
 
-.product-colors-container .header svg{
-    font-size: 30px;
-    background-color: var(--main_color);
-    color: var(--text_color);
-    border-radius: 50%;
-    cursor: pointer;
-}
-.product-colors-container .header h2{
-    color: var(--text_color);
-}
-.product-colors-container .color_card{
-    width: 300px;
-    padding: 20px;
-    border: 1px solid var(--text_color);
-    border-radius: 12px;
-}
-.product-colors-container .color_card .color_name{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin: 0 0 24px;
-}
-
-.product-colors-container .color_card .color_name svg
-,.color_card .quantity_size .icon svg{
-    font-size: 25px;
-    color: rgb(227, 9, 9);
-    cursor: pointer;
-    vertical-align: middle;
-
-}
-.color_card .quantity_size {
-    display: flex;
-    align-items: center;
-    gap: 10px ;
-}
-.add_product{
-    margin-top: 20px;
-}
-.add_product .add_product_btn{
-    background-color: var(--main_color);
-    padding: 15px 20px;
-    color: white;
-    border-radius: 12px;
-    cursor: pointer;
+.editor_input {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
 }

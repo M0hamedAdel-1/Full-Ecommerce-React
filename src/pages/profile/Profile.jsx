@@ -184,7 +184,6 @@ const Profile = () => {
                 type="file"
                 name="profileImage"
                 accept="image/*"
-                // value={profileform.image}
                 onChange={(e) => {
                   const file = e.target.files[0];
                   if (file) {
@@ -198,6 +197,8 @@ const Profile = () => {
                 }}
                 className="input-field input-with-icons"
               />
+
+              
               <label className="input-label">Profile Image</label>
 
               <div className="input-icons">
@@ -225,6 +226,8 @@ const Profile = () => {
                   <MdDelete />
                 </button>
               </div>
+
+
             </div>
 
             {/* Submit Button */}

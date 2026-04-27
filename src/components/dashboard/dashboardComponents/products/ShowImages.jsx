@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import HeadingComponent from '../../headingcomponent/HeadingComponent'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { Link, Outlet, useNavigate, useParams } from 'react-router-dom'
-// import TableOfImages from './TableOfImages'
 import toast from 'react-hot-toast'
 import { axiosInstance } from '../../../../config/axios'
 import { MdDelete } from 'react-icons/md';

@@ -1,4 +1,6 @@
+import { BsEye } from "react-icons/bs"
 import "./inputs.css"
+import { MdDelete } from "react-icons/md"
 const InputFile = ({label,type,value,onChange ,name}) => {
 
   return (
@@ -13,6 +15,7 @@ const InputFile = ({label,type,value,onChange ,name}) => {
         value={value}
         onChange={onChange}
       />
+
     </div>
   )
 }

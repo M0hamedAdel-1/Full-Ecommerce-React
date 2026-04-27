@@ -41,7 +41,6 @@ const ProfileIcon = () => {
   };
   const handleProfile = () => {
     navigate("/profile");
-    // setActive(false);
   };
   return (
     <div className="profile_container">
