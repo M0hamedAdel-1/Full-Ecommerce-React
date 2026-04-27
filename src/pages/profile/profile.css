@@ -148,7 +148,7 @@
 
 .image-modal-content {
   position: relative;
-  width: 90%;
+  width: 70%;
   max-height: 90%;
   object-fit: cover;
   display: flex;

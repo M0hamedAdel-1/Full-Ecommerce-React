@@ -13,12 +13,12 @@ const OrderDetails = ({order, onclose}) => {
 
         {/* Header */}
         <div className="order_header">
-          <div>
+          <div className="box-one">
             <span>Order ID</span>
             <h4>{order.id}</h4>
           </div>
 
-          <div>
+          <div className="box-two">
             <span>Order Date</span>
             <h4>{order.createdAt}</h4>
           </div>
@@ -60,9 +60,9 @@ const OrderDetails = ({order, onclose}) => {
               <div className="item_left">
                 <img src={item.imageUrl} alt="" />
 
-                <div>
+                <div className="info_card">
                   <h4>{item.name}</h4>
-                  <p>Quantity: {item.quantity}</p>
+                  <p className="quantity">Quantity: {item.quantity}</p>
 
                   <div className="meta">
                     <span className="color_dot" style={{ background: item.color }}></span>
