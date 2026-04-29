@@ -1,4 +1,4 @@
-
+import "./orderdetails.css"
 const OrderDetails = ({order, onclose}) => {
   if (!order) return null;
   return (

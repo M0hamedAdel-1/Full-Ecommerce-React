@@ -86,6 +86,11 @@
   color: var(--text_color);
 }
 
+@media (max-width:768px) {
+  .all_table  td {
+    font-size: 10px;
+  }
+}
 .all_table tbody tr {
     background-color: var(--black_color);
   border-bottom: 1px solid #1e293b;
@@ -201,6 +206,8 @@
 }
 
 
+
+
 .dashboard_home .order_details .modal_overlay {
   position: fixed;
   inset: 0;
@@ -222,7 +229,6 @@
     margin-bottom: 20px;
   }
 }
-
 .dashboard_home .order_details .modal_box {
   width: 750px;
   max-width: 95%;

@@ -9,7 +9,6 @@ const EditorInput = ({ value, onChange }) => {
   return (
     <div className="editor_input">
       <label>Product Description</label>
-
       <Editor
         apiKey={import.meta.env.VITE_TINY_API_KEY}
         initialValue={value}

@@ -1,6 +1,4 @@
 import { OrbitProgress } from "react-loading-indicators";
-// import "./table.css";
-
 const TableComponent = ({ headers, rows, pageIndex }) => {
   return (
     <div className="all_table">

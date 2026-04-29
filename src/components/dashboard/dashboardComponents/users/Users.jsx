@@ -36,7 +36,7 @@ const Users = () => {
   },
   {
     label: "Name",
-    key: "name",
+     render: (row) => `${row.firstName} ${row.secondName}`,
   },
   {
     label: "Email",
@@ -81,6 +81,8 @@ const getusers = async () => {
 
 
     }
+
+    
     
     const keyboard = (search || "").toLowerCase()
     const filteredusers = users.filter((u)=>
@@ -96,7 +98,7 @@ const getusers = async () => {
       <div>
         {isLoading ? (
           <div className="load_center">
-            <OrbitProgress color="#eaf737" size="medium" text="" textColor="" />
+            <OrbitProgress color="#eaf737" size="medium" />
           </div>
         ) : (
           <div className="table_content">
