@@ -106,20 +106,6 @@ const EditCategory = () => {
             }
           />
 
-          <div className="editor">
-            <EditorInput
-              editorRef={editorRef}
-              key={category.description}
-              value={category.description}
-              onChange={(content) =>
-                setCategory((prev) => ({
-                  ...prev,
-                  description: content,
-                }))
-              }
-            />
-          </div>
-
           <button className="submit_category" type="submit" disabled={loading}>
             update category
           </button>
